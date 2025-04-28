@@ -10,19 +10,7 @@ const tasksFilePath = path.join(__dirname, 'tasks.json');
 // Обработка статичных файлов (для браузера)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// API для получения задач
-app.get('/api/tasks', (req, res) => {
-  const subject = req.query.subject;
 
-  // Проверяем, существует ли файл tasks.json
-  if (fs.existsSync(tasksFilePath)) {
-    const tasks = JSON.parse(fs.readFileSync(tasksFilePath, 'utf-8'));
-    const filteredTasks = tasks.filter(task => task.subject === subject);
-    res.json(filteredTasks);
-  } else {
-    res.status(404).json({ error: 'File with tasks not fiden' });
-  }
-});
 
 // Запуск сервера
 app.listen(PORT, () => {

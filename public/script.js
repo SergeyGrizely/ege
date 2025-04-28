@@ -8,15 +8,22 @@ let timeLeft = 180; // 3 минуты
 let lastFilter = 'all';
 
 // Загрузка заданий при старте
-window.onload = async function() {
-  loadProgress();
+async function loadTasks(subject) {
+  const response = await fetch('/tasks.json');
+  const tasks = await response.json();
 
-  const response = await fetch('/api/tasks');
-  tasks = await response.json();
-  applyFilter();
-  showTaskList();
-  updateStats();
-};
+  const filteredTasks = tasks.filter(task => task.subject === subject);
+
+  const taskList = document.getElementById('taskList');
+  taskList.innerHTML = '';
+
+  filteredTasks.forEach(task => {
+    const li = document.createElement('li');
+    li.textContent = task.text;
+    taskList.appendChild(li);
+  });
+}
+
 
 function showTaskList() {
   clearInterval(timerInterval);
