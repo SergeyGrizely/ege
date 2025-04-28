@@ -114,7 +114,7 @@ function updateStats() {
   const total = correctCount + incorrectCount;
   const percent = total > 0 ? Math.round((correctCount / total) * 100) : 0;
   document.getElementById('stats').textContent =
-    `Правильных: ${correctCount} | Неправильных: ${incorrectCount} | Успеваемость: ${percent}%`;
+    `Правильны: ${correctCount} | Неправильных: ${incorrectCount} | Успеваемость: ${percent}%`;
 }
 
 function startTimer() {
