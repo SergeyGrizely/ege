@@ -20,7 +20,7 @@ app.get('/api/tasks', (req, res) => {
     const filteredTasks = tasks.filter(task => task.subject === subject);
     res.json(filteredTasks);
   } else {
-    res.status(404).json({ error: 'Файл с заданиями не найден' });
+    res.status(404).json({ error: 'File with tasks not fiden' });
   }
 });
 
