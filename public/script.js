@@ -9,19 +9,23 @@ let lastFilter = 'all';
 
 // Загрузка заданий при старте
 async function loadTasks(subject) {
-  const response = await fetch('/tasks.json');
-  const tasks = await response.json();
+  try {
+    const response = await fetch('/tasks.json');
+    const tasks = await response.json();
 
-  const filteredTasks = tasks.filter(task => task.subject === subject);
+    const filteredTasks = tasks.filter(task => task.subject === subject);
 
-  const taskList = document.getElementById('taskList');
-  taskList.innerHTML = '';
+    const taskList = document.getElementById('taskList');
+    taskList.innerHTML = '';
 
-  filteredTasks.forEach(task => {
-    const li = document.createElement('li');
-    li.textContent = task.text;
-    taskList.appendChild(li);
-  });
+    filteredTasks.forEach(task => {
+      const li = document.createElement('li');
+      li.textContent = task.text;
+      taskList.appendChild(li);
+    });
+  } catch (error) {
+    console.error('Ошибка загрузки задач:', error);
+  }
 }
 
 

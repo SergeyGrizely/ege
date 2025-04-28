@@ -1,18 +1,17 @@
 const express = require('express');
-const fs = require('fs');
 const path = require('path');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Путь до tasks.json
-const tasksFilePath = path.join(__dirname, 'tasks.json');
-
-// Обработка статичных файлов (для браузера)
+// Раздаём всё из папки public
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Для любых неизвестных маршрутов отдаём index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
-
-// Запуск сервера
 app.listen(PORT, () => {
   console.log(`Сервер запущен на http://localhost:${PORT}`);
 });
