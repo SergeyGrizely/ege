@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Информатика — тесты</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Тесты по информатике</h1>
+    <select id="testSelector">
+      <option value="test1">Тест 1</option>
+      <option value="test2">Тест 2</option>
+      <option value="random">Случайный тест</option>
+    </select>
+    <button onclick="loadTest()">Начать</button>
+    <div id="taskContainer"></div>
+    <button onclick="checkAnswers()">Проверить</button>
+    <button onclick="loadHelp()">Справка</button>
+    <div id="resultContainer"></div>
+    <div id="helpContainer"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
