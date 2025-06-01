@@ -1,36 +1,46 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+
 const app = express();
 const PORT = 3000;
 
 app.use(express.static('public'));
 
-app.get('/api/test', (req, res) => {
-  const { name } = req.query;
-  fs.readFile(path.join(__dirname, 'data', 'tasks.json'), 'utf8', (err, data) => {
-    if (err) return res.status(500).send("Ошибка при загрузке тестов");
-    const all = JSON.parse(data).tests;
-    if (name === 'random') {
-      const allTasks = Object.values(all).flat();
-      const shuffled = allTasks.sort(() => 0.5 - Math.random()).slice(0, 5);
-      res.json(shuffled);
+app.get('/api/tasks', (req, res) => {
+  const variant = req.query.variant;
+
+  fs.readFile(path.join(__dirname, 'data', 'tasks.json'), 'utf-8', (err, data) => {
+    if (err) {
+      res.status(500).send('Ошибка при загрузке заданий');
+      return;
+    }
+
+    const tasks = JSON.parse(data);
+
+    if (variant === 'random') {
+      // выбираем случайно 4 задания из всех вариантов
+      const all = Object.values(tasks).flat();
+      const shuffled = all.sort(() => 0.5 - Math.random());
+      res.json(shuffled.slice(0, 4));
     } else {
-      res.json(all[name] || []);
+      res.json(tasks[variant] || []);
     }
   });
 });
 
 app.get('/api/help', (req, res) => {
-  const { subject } = req.query;
-  fs.readFile(path.join(__dirname, 'data', 'help.json'), 'utf8', (err, data) => {
-    if (err) return res.status(500).send("Ошибка при загрузке справки");
-    const allHelp = JSON.parse(data);
-    const filtered = allHelp.filter(item => item.subject === subject);
-    res.json(filtered);
+  fs.readFile(path.join(__dirname, 'data', 'help.json'), 'utf-8', (err, data) => {
+    if (err) {
+      res.status(500).send('Ошибка при загрузке справки');
+      return;
+    }
+
+    const help = JSON.parse(data);
+    res.json(help.filter(h => h.subject === 'informatics'));
   });
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Сервер запущен на http://localhost:${PORT}`);
 });
