@@ -23,7 +23,7 @@ button {
   margin: 8px;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #4caf50;
+  background-color: rgb(159, 14, 172);
   color: white;
   border: none;
   border-radius: 5px;
@@ -32,7 +32,7 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: rgb(140, 12, 151);
 }
 
 .button-group {
@@ -44,7 +44,7 @@ button:hover {
 }
 
 .correct {
-  color: green;
+  color: rgb(128, 0, 128);
   font-weight: bold;
 }
 
