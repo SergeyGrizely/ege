@@ -22,7 +22,7 @@ app.get('/api/tasks', (req, res) => {
       // выбираем случайно 4 задания из всех вариантов
       const all = Object.values(tasks).flat();
       const shuffled = all.sort(() => 0.5 - Math.random());
-      res.json(shuffled.slice(0, 4));
+      res.json(shuffled.slice(0, 8));
     } else {
       res.json(tasks[variant] || []);
     }
