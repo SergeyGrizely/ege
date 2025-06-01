@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Руководство пользователя</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+    h1, h2 {
+      color: #0a5;
+    }
+    a {
+      color: #06c;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .btn-back {
+      margin-top: 20px;
+      display: inline-block;
+      background-color: #0a5;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Руководство пользователя</h1>
+  
+  <h2>Как запустить сайт на своём компьютере</h2>
+  <p>Если вы никогда не работали с такими сайтами — ничего страшного. Просто следуйте этим шагам.</p>
+  <ol>
+    <li><b>Скачайте архив с проектом</b><br>Скачать можно на странице разработчика в Github <a href="https://github.com/SergeyGrizely/ege" target="_blank" rel="noopener">https://github.com/SergeyGrizely/ege</a> (называется <code>ege</code>), скопируйте её к себе в удобное место, например, на рабочий стол.</li>
+    <li><b>Установите Node.js</b><br>Перейдите на сайт <a href="https://nodejs.org" target="_blank" rel="noopener">https://nodejs.org</a>, скачайте LTS версию и установите её.</li>
+    <li><b>Установите нужные модули</b><br>Откройте папку с проектом, откройте терминал и введите <code>npm install</code>.</li>
+    <li><b>Запустите сервер</b><br>В том же терминале введите <code>node server.js</code>. Если всё успешно, увидите сообщение о запуске сервера.</li>
+    <li><b>Откройте сайт</b><br>В браузере введите <code>http://localhost:3000</code>. Сайт запустится.</li>
+  </ol>
+
+  <h2>Как пользоваться сайтом</h2>
+  <p>После открытия сайта вы увидите приветственную страницу. Нажмите кнопку «Перейти к тренировке», чтобы начать.</p>
+  <ul>
+    <li>Выбирайте тесты по информатике.</li>
+    <li>Отвечайте на вопросы с вариантами или вводите свои ответы.</li>
+    <li>Следите за таймером — 45 минут на тест.</li>
+    <li>Проверяйте ответы кнопкой «Проверить ответы» или дождитесь окончания времени.</li>
+    <li>Читайте справочник для повторения материала.</li>
+  </ul>
+
+  <h2>Полезные советы</h2>
+  <p>Сайт работает без интернета, но сервер должен быть запущен локально.<br>Если возникнут вопросы, обращайтесь к тому, кто дал вам этот сайт.</p>
+
+  <a href="index.html" class="btn-back">← Вернуться на главную</a>
+</body>
+</html>
